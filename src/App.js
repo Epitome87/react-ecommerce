@@ -1,7 +1,12 @@
 import './App.css';
+import HomePage from './pages/homepage/homepage';
 
 function App() {
-  return <div>Starting my React E-Cmmerce Site!</div>;
+  return (
+    <div>
+      <HomePage />
+    </div>
+  );
 }
 
 export default App;
