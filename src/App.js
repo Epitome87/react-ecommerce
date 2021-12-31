@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import HomePage from './pages/homepage/Homepage';
 import ShopPage from './pages/homepage/shop/ShopPage';
 import SignInPage from './pages/signin/SignInPage';
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -13,17 +13,21 @@ function App() {
   let unsubscribeFromAuth = null;
 
   useEffect(() => {
-    unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      console.log(user);
-    });
-
+    authHelper();
     return unsubscribeFromAuth;
   }, []);
 
+  const authHelper = async () => {
+    unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      await createUserProfileDocument(user);
+      setCurrentUser(user);
+      console.log(user);
+    });
+  };
+
   return (
     <React.Fragment>
-      <Header currentUser={currentUser}/>
+      <Header currentUser={currentUser} />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/shop' element={<ShopPage />} />

@@ -14,6 +14,34 @@ const firebaseConfig = {
   measurementId: 'G-PPPPPKZZS7',
 };
 
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  // Ensure the User Auth object is even valid
+  if (!userAuth) return;
+
+  // Find the user document in the Firebase store
+  const userRef = firestore.collection('users').doc(userAuth.uid);
+  const snapShot = await userRef.get();
+
+  // Create this User document if it doesn't already exist
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (err) {
+      console.log('Error creating User', err.message);
+    }
+  }
+
+  return userRef;
+};
+
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
@@ -30,3 +58,16 @@ export const signInWithGoogle = () => {
 };
 
 export default firebase;
+
+// // Can query by:
+// firebase
+//   .collection('users')
+//   .doc('K9MUMLud1hATsTkzFSQY')
+//   .collection('cartItems')
+//   .doc('Hgnm2IIXLh5SpzDVM3Qy');
+
+// // Can also do:
+// firebase.doc('users/K9MUMLud1hATsTkzFSQY/cartItems/Hgnm2IIXLh5SpzDVM3Qy');
+
+// // Can do same path-syntax with collections:
+// firebase.collection('users/K9MUMLud1hATsTkzFSQY/cartItems');
