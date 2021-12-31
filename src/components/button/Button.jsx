@@ -1,8 +1,12 @@
 import React from 'react';
 import './button.styles.scss';
 
-function Button() {
-  return <button className='button'></button>;
+function Button({ children, ...otherProps }) {
+  return (
+    <button className='button' {...otherProps}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;
