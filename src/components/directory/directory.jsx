@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './directory.styles.scss';
-import MenuItem from '../menu-item/menu-item';
+import MenuItem from '../menu-item/MenuItem';
 
 const Directory = (props) => {
   const [sections, setSections] = useState([
@@ -38,7 +38,6 @@ const Directory = (props) => {
     },
   ]);
 
-  console.log(sections);
   const renderedSections = sections.map((section) => {
     return (
       <MenuItem
@@ -46,6 +45,7 @@ const Directory = (props) => {
         title={section.title}
         imageUrl={section.imageUrl}
         size={section.size}
+        linkUrl={section.linkUrl}
       />
     );
   });
