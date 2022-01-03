@@ -4,9 +4,12 @@ import { auth } from '../../firebase/firebase.utils';
 import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { useSelector } from 'react-redux';
+import CartIcon from '../cart-icon/CartIcon';
+import CartDropdown from '../cart-dropdown/CartDropdown';
 
 function Header() {
   const currentUser = useSelector((state) => state.user.value);
+  const isCartHidden = useSelector((state) => state.cart.isHidden);
 
   return (
     <div className='header'>
@@ -29,7 +32,9 @@ function Header() {
             Sign In
           </NavLink>
         )}
+        <CartIcon />
       </div>
+      {isCartHidden ? null : <CartDropdown />}
     </div>
   );
 }
