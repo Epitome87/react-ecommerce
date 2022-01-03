@@ -27,6 +27,7 @@ export const cartSlice = createSlice({
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
     },
+    removeItem: (state, action) => {},
   },
 });
 
