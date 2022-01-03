@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialCartState = {
-  value: null,
+  cartItems: [],
   isHidden: true,
 };
 
@@ -12,10 +12,24 @@ export const cartSlice = createSlice({
     toggleCartVisibility: (state) => {
       state.isHidden = !state.isHidden;
     },
-    addItem: (state, action) => {},
+    addItem: (state, action) => {
+      const existingCartItem = state.cartItems.find(
+        (cartItem) => cartItem.id === action.payload.id
+      );
+
+      if (existingCartItem) {
+        state.cartItems = state.cartItems.map((cartItem) =>
+          cartItem.id === action.payload.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        state.cartItems.push({ ...action.payload, quantity: 1 });
+      }
+    },
   },
 });
 
-export const { toggleCartVisibility } = cartSlice.actions;
+export const { toggleCartVisibility, addItem } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -15,9 +15,10 @@ function CollectionPreview({ title, items }) {
             return (
               <CollectionItem
                 key={item.id}
-                name={item.name}
-                price={item.price}
-                imageUrl={item.imageUrl}
+                // name={item.name}
+                // price={item.price}
+                // imageUrl={item.imageUrl}
+                item={item}
               >
                 {item.name}
               </CollectionItem>
