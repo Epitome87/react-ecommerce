@@ -6,10 +6,9 @@ import HomePage from './pages/homepage/Homepage';
 import ShopPage from './pages/homepage/shop/ShopPage';
 import SignInPage from './pages/signin/SignInPage';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { setCurrentUser } from './redux/userSlice';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-
   let unsubscribeFromAuth = null;
 
   useEffect(() => {
@@ -27,7 +26,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <Header currentUser={currentUser} />
+      <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/shop' element={<ShopPage />} />
