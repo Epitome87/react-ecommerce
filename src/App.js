@@ -1,33 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/header/Header';
-import HomePage from './pages/homepage/Homepage';
+import HomePage from './pages/homepage/HomePage';
 import ShopPage from './pages/homepage/shop/ShopPage';
 import SignInPage from './pages/signin/SignInPage';
+import { useDispatch, useSelector } from 'react-redux';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/userSlice';
 
 function App() {
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.value);
+
   let unsubscribeFromAuth = null;
-
-  useEffect(() => {
-    authHelper();
-    return unsubscribeFromAuth;
-  }, []);
-
-
-  useEffect(() => {
-    console.log("CURRENT USER", currentUser);
-  }, [currentUser])
 
   const authHelper = async () => {
     unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapshot => {
-          setCurrentUser({ id: snapshot.id, ...snapshot.data() })
+        userRef.onSnapshot((snapshot) => {
+          dispatch(setCurrentUser({ id: snapshot.id, ...snapshot.data() }));
         });
       } else {
         setCurrentUser(null);
@@ -35,13 +29,21 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    authHelper();
+    return unsubscribeFromAuth;
+  }, []);
+
   return (
     <React.Fragment>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/shop' element={<ShopPage />} />
-        <Route path='/signin' element={<SignInPage />} />
+        <Route
+          path='/signin'
+          element={currentUser ? <Navigate to='/' /> : <SignInPage />}
+        />
       </Routes>
     </React.Fragment>
   );

@@ -4,7 +4,6 @@ import { auth } from '../../firebase/firebase.utils';
 import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { useSelector } from 'react-redux';
-import { setCurrentUser } from '../../redux/userSlice';
 
 function Header() {
   const currentUser = useSelector((state) => state.user.value);
