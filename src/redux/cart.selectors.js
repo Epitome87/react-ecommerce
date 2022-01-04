@@ -1,20 +1,21 @@
-import { createSelector } from 'reselect';
+// import { createSelector } from 'reselect';
+import { createDraftSafeSelector } from '@reduxjs/toolkit';
 
 // reselect will select only value change
 const selectCart = (state) => state.cart;
 
 // Create a memo-ized selector
-export const selectCartVisibility = createSelector(
+export const selectCartVisibility = createDraftSafeSelector(
   [selectCart],
   (cart) => cart.isHidden
 );
 
-export const selectCartItems = createSelector(
+export const selectCartItems = createDraftSafeSelector(
   [selectCart],
   (cart) => cart.cartItems
 );
 
-export const selectCartItemsCount = createSelector(
+export const selectCartItemsCount = createDraftSafeSelector(
   [selectCartItems],
   (cartItems) =>
     cartItems.reduce(

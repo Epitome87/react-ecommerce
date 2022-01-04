@@ -6,9 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import './cart-icon.styles.scss';
 
 function CartIcon() {
-  const numCartItems = useSelector((state) => selectCartItemsCount(state));
-
-  console.log('Cart Icon being rendered');
+  // const numCartItems = useSelector((state) => selectCartItemsCount(state));
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const numCartItems = cartItems.reduce(
+    (totalQuantity, currentCartItem) =>
+      totalQuantity + currentCartItem.quantity,
+    0
+  );
 
   const dispatch = useDispatch();
 

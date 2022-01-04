@@ -5,13 +5,15 @@ import Header from './components/header/Header';
 import HomePage from './pages/homepage/HomePage';
 import ShopPage from './pages/homepage/shop/ShopPage';
 import SignInPage from './pages/signin/SignInPage';
+import CheckoutPage from './pages/checkout/CheckoutPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/userSlice';
+import { selectCurrentUser } from './redux/user.selectors';
 
 function App() {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.value);
+  const currentUser = useSelector((state) => selectCurrentUser(state));
 
   let unsubscribeFromAuth = null;
 
@@ -40,6 +42,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/shop' element={<ShopPage />} />
+        <Route path='/checkout' element={<CheckoutPage />} />
         <Route
           path='/signin'
           element={currentUser ? <Navigate to='/' /> : <SignInPage />}

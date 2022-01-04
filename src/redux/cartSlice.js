@@ -10,6 +10,7 @@ export const cartSlice = createSlice({
   initialState: initialCartState,
   reducers: {
     toggleCartVisibility: (state) => {
+      console.log('TOGGLING');
       state.isHidden = !state.isHidden;
     },
     addItem: (state, action) => {
