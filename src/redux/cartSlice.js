@@ -13,6 +13,7 @@ export const cartSlice = createSlice({
       console.log('TOGGLING');
       state.isHidden = !state.isHidden;
     },
+
     addItem: (state, action) => {
       const existingCartItem = state.cartItems.find(
         (cartItem) => cartItem.id === action.payload.id
@@ -28,10 +29,36 @@ export const cartSlice = createSlice({
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
     },
-    removeItem: (state, action) => {},
+
+    removeItem: (state, action) => {
+      const existingCartItem = state.cartItems.find(
+        (cartItem) => cartItem.id === action.payload.id
+      );
+
+      // Removed item exists with a quantity of 1: Remove it from cart list
+      if (existingCartItem.quantity === 1) {
+        state.cartItems = state.cartItems.filter(
+          (cartItem) => cartItem.id !== action.payload.id
+        );
+      } else {
+        // Removed item exists with quantity greater than 1: Reduce quantity by 1
+        state.cartItems = state.cartItems.map((cartItem) =>
+          cartItem.id === action.payload.id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
+      }
+    },
+
+    clearItem: (state, action) => {
+      state.cartItems = state.cartItems.filter(
+        (cartItem) => cartItem.id !== action.payload.id
+      );
+    },
   },
 });
 
-export const { toggleCartVisibility, addItem } = cartSlice.actions;
+export const { toggleCartVisibility, addItem, removeItem, clearItem } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
