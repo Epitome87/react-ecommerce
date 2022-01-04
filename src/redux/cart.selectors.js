@@ -24,3 +24,13 @@ export const selectCartItemsCount = createDraftSafeSelector(
       0
     )
 );
+
+export const selectCartTotal = createDraftSafeSelector(
+  [selectCartItems],
+  (cartItems) =>
+    cartItems.reduce(
+      (totalQuantity, currentCartItem) =>
+        totalQuantity + currentCartItem.quantity * currentCartItem.price,
+      0
+    )
+);
