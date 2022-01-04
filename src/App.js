@@ -24,7 +24,7 @@ function App() {
           dispatch(setCurrentUser({ id: snapshot.id, ...snapshot.data() }));
         });
       } else {
-        setCurrentUser(null);
+        dispatch(setCurrentUser(null));
       }
     });
   };

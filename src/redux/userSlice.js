@@ -9,7 +9,6 @@ export const userSlice = createSlice({
   initialState: initialUserState,
   reducers: {
     setCurrentUser: (state, action) => {
-      console.log('BEING SET TO:', action.payload);
       state.value = action.payload;
     },
   },
