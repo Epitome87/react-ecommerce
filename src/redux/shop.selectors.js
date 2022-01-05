@@ -9,3 +9,14 @@ export const selectCollections = createDraftSafeSelector(
   [selectShop],
   (shop) => shop.collections
 );
+
+export const selectCollectionsForPreview = createDraftSafeSelector(
+  [selectCollections],
+  (collections) => Object.keys(collections).map((key) => collections[key])
+);
+
+export const selectCollection = (collectionUrlParam) =>
+  createDraftSafeSelector(
+    [selectCollections],
+    (collections) => collections[collectionUrlParam]
+  );

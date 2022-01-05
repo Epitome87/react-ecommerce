@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../button/Button';
 import CartItem from '../cart-item/CartItem';
 import { selectCartItems } from '../../redux/cart.selectors';
