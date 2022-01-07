@@ -5,7 +5,7 @@ import Button from '../button/Button';
 import CartItem from '../cart-item/CartItem';
 import { selectCartItems } from '../../redux/cart.selectors';
 import { toggleCartVisibility } from '../../redux/cartSlice';
-import './cart-dropdown.styles.scss';
+import * as Styled from './CartDropdownContainer';
 
 function CartDropdown() {
   const cartItems = useSelector((state) => selectCartItems(state));
@@ -21,14 +21,16 @@ function CartDropdown() {
   const renderedCartItems = cartItems.length ? (
     cartItems.map((cartItem) => <CartItem key={cartItem.id} item={cartItem} />)
   ) : (
-    <span className='empty-message'>Your cart is empty</span>
+    <Styled.EmptyMessage>Your cart is empty</Styled.EmptyMessage>
   );
 
   return (
-    <div className='cart-dropdown'>
-      <div className='cart-items'>{renderedCartItems}</div>
-      <Button onClick={handleCheckoutClick}>Go to Checkout</Button>
-    </div>
+    <Styled.CartDropdown>
+      <Styled.CartItems>{renderedCartItems}</Styled.CartItems>
+      <Styled.ButtonContainer onClick={handleCheckoutClick}>
+        Go to Checkout
+      </Styled.ButtonContainer>
+    </Styled.CartDropdown>
   );
 }
 

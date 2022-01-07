@@ -1,14 +1,14 @@
-import React from "react";
-import SignIn from "../../components/sign-in/SignIn";
-import SignUp from "../../components/sign-up/SignUp";
-import "./signin-page_styles.scss";
+import React from 'react';
+import SignIn from '../../components/sign-in/SignIn';
+import SignUp from '../../components/sign-up/SignUp';
+import * as Styled from './SignInPageContainer';
 
 function SignInPage() {
   return (
-    <div className="sign-in-up">
+    <Styled.SignInUp>
       <SignIn />
       <SignUp />
-    </div>
+    </Styled.SignInUp>
   );
 }
 

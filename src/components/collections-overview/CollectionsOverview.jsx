@@ -1,8 +1,8 @@
 import React from 'react';
-import './collections-overview.styles.scss';
 import { useSelector } from 'react-redux';
 import { selectCollectionsForPreview } from '../../redux/shop.selectors';
 import CollectionPreview from '../collection-preview/CollectionPreview';
+import * as Styled from './CollectionsOverviewContainer';
 
 function CollectionsOverview() {
   const collections = useSelector((state) =>
@@ -11,7 +11,7 @@ function CollectionsOverview() {
   console.log('COLLECTIONS', collections);
 
   return (
-    <div className='collections-overview'>
+    <Styled.CollectionsOverview>
       {collections.map(({ id, title, routeName, items }) => (
         <CollectionPreview
           key={id}
@@ -20,7 +20,7 @@ function CollectionsOverview() {
           routeName={routeName}
         />
       ))}
-    </div>
+    </Styled.CollectionsOverview>
   );
 }
 

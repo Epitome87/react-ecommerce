@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/header/Header';
 import HomePage from './pages/homepage/HomePage';
-import ShopPage from './pages/homepage/shop/ShopPage';
+import ShopPage from './pages/shop/ShopPage';
 import SignInPage from './pages/signin/SignInPage';
 import CheckoutPage from './pages/checkout/CheckoutPage';
 import { useDispatch, useSelector } from 'react-redux';

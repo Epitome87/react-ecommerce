@@ -3,7 +3,13 @@ import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 import { toggleCartVisibility } from '../../redux/cartSlice';
 import { selectCartItems } from '../../redux/cart.selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import './cart-icon.styles.scss';
+import * as Styled from './CartIconContainer';
+import styled from 'styled-components';
+
+const StyledShoppingIcon = styled(ShoppingIcon)`
+  width: 24px;
+  height: 24px;
+`;
 
 function CartIcon() {
   // const numCartItems = useSelector((state) => selectCartItemsCount(state));
@@ -17,10 +23,10 @@ function CartIcon() {
   const dispatch = useDispatch();
 
   return (
-    <div className='cart-icon' onClick={() => dispatch(toggleCartVisibility())}>
-      <ShoppingIcon className='shopping-icon' />
-      <span className='item-count'>{numCartItems}</span>
-    </div>
+    <Styled.CartIcon onClick={() => dispatch(toggleCartVisibility())}>
+      <StyledShoppingIcon />
+      <Styled.ItemCount>{numCartItems}</Styled.ItemCount>
+    </Styled.CartIcon>
   );
 }
 

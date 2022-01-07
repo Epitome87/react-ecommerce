@@ -1,9 +1,9 @@
 import React from 'react';
-import './collection-page.styles.scss';
 import CollectionItem from '../../components/collection-item/CollectionItem';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCollection } from '../../redux/shop.selectors';
+import * as Styled from './CollectionPageContainer';
 
 function CollectionPage() {
   const { collectionId } = useParams();
@@ -16,10 +16,10 @@ function CollectionPage() {
   });
 
   return (
-    <div className='collection-page'>
-      <h2>{collection.title}</h2>
-      <div className='items'>{renderedCollectionItems}</div>
-    </div>
+    <Styled.CollectionPage>
+      <Styled.Title>{collection.title}</Styled.Title>
+      <Styled.Items>{renderedCollectionItems}</Styled.Items>
+    </Styled.CollectionPage>
   );
 }
 

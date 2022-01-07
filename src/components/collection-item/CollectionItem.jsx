@@ -1,24 +1,23 @@
 import React from 'react';
-import './collection-item.styles.scss';
-import Button from '../button/Button';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cartSlice';
+import * as Styled from './CollectionItemContainer';
 
 function CollectionItem({ item }) {
   const { name, price, imageUrl } = item;
   const dispatch = useDispatch();
 
   return (
-    <div className='collection-item'>
-      <div className='image' style={{ backgroundImage: `url(${imageUrl})` }} />
-      <div className='collection-footer'>
-        <span className='name'>{name}</span>
-        <span className='price'>{price}</span>
-      </div>
-      <Button inverted onClick={() => dispatch(addItem(item))}>
+    <Styled.CollectionItem>
+      <Styled.ItemImage imageUrl={imageUrl} />
+      <Styled.CollectionFooter>
+        <Styled.FooterName>{name}</Styled.FooterName>
+        <Styled.FooterPrice>${price}</Styled.FooterPrice>
+      </Styled.CollectionFooter>
+      <Styled.ItemButton inverted onClick={() => dispatch(addItem(item))}>
         Add to Cart
-      </Button>
-    </div>
+      </Styled.ItemButton>
+    </Styled.CollectionItem>
   );
 }
 

@@ -1,35 +1,35 @@
 import React from 'react';
 import { addItem, removeItem, clearItem } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
-import './checkout-item.styles.scss';
+import * as Styled from './CheckoutItemContainer';
 
 function CheckoutItem({ cartItem }) {
   const { name, imageUrl, price, quantity } = cartItem;
   const dispatch = useDispatch();
 
   return (
-    <div className='checkout-item'>
-      <div className='image-container'>
+    <Styled.CheckoutItem>
+      <Styled.ImageContainer>
         <img src={imageUrl} alt='product' />
-      </div>
-      <span className='name'>{name}</span>
-      <span className='quantity'>
-        <div className='arrow' onClick={() => dispatch(removeItem(cartItem))}>
+      </Styled.ImageContainer>
+      <Styled.ItemName>{name}</Styled.ItemName>
+      <Styled.ItemQuantity>
+        <Styled.Arrow onClick={() => dispatch(removeItem(cartItem))}>
           &#10094;
-        </div>
-        <span className='value'>{quantity}</span>
-        <div className='arrow' onClick={() => dispatch(addItem(cartItem))}>
+        </Styled.Arrow>
+        <Styled.Value>{quantity}</Styled.Value>
+        <Styled.Arrow onClick={() => dispatch(addItem(cartItem))}>
           &#10095;
-        </div>
-      </span>
-      <span className='price'>${price}</span>
+        </Styled.Arrow>
+      </Styled.ItemQuantity>
+      <Styled.ItemPrice>${price}</Styled.ItemPrice>
       <div
         className='remove-button'
         onClick={() => dispatch(clearItem(cartItem))}
       >
         &#10005;
       </div>
-    </div>
+    </Styled.CheckoutItem>
   );
 }
 

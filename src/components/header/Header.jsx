@@ -1,7 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
-import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { useSelector } from 'react-redux';
 import CartIcon from '../cart-icon/CartIcon';
@@ -9,6 +7,7 @@ import CartDropdown from '../cart-dropdown/CartDropdown';
 import { createStructuredSelector } from 'reselect';
 import { selectCartVisibility } from '../../redux/cart.selectors';
 import { selectCurrentUser } from '../../redux/user.selectors';
+import * as Styled from './HeaderContainer';
 
 function Header() {
   // const currentUser = useSelector((state) => state.user.value);
@@ -26,30 +25,24 @@ function Header() {
   );
 
   return (
-    <div className='header'>
-      <NavLink to='/' className='logo-container'>
+    <Styled.Header>
+      <Styled.Logo to='/'>
         <Logo className='logo' />
-      </NavLink>
-      <div className='options'>
-        <NavLink to='/shop' className='option'>
-          Shop
-        </NavLink>
-        <NavLink to='/shop' className='option'>
-          Contact
-        </NavLink>
+      </Styled.Logo>
+      <Styled.Options>
+        <Styled.OptionNavLink to='/shop'>Shop</Styled.OptionNavLink>
+        <Styled.OptionNavLink to='/shop'>Contact</Styled.OptionNavLink>
         {currentUser ? (
-          <div className='option' onClick={() => auth.signOut()}>
+          <Styled.OptionNavLink as='div' onClick={() => auth.signOut()}>
             Sign Out
-          </div>
+          </Styled.OptionNavLink>
         ) : (
-          <NavLink className='option' to='/signin'>
-            Sign In
-          </NavLink>
+          <Styled.OptionNavLink to='/signin'>Sign In</Styled.OptionNavLink>
         )}
         <CartIcon />
-      </div>
+      </Styled.Options>
       {isCartHidden ? null : <CartDropdown />}
-    </div>
+    </Styled.Header>
   );
 }
 
