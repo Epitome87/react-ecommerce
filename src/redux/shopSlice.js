@@ -9,10 +9,12 @@ const shopSlice = createSlice({
   name: 'shop',
   initialState: initialShopState,
   reducers: {
-    stuff: (state, action) => {},
+    updateCollections: (state, action) => {
+      state.collections = action.payload;
+    },
   },
 });
 
-export const { stuff } = shopSlice.actions;
+export const { updateCollections } = shopSlice.actions;
 
 export default shopSlice.reducer;

@@ -14,6 +14,27 @@ const firebaseConfig = {
   measurementId: 'G-PPPPPKZZS7',
 };
 
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    // We are concerned only with the title and items properties of the document's data
+    const { title, items } = doc.data();
+
+    // Our desired output is an object that includes the above properties, as well as the route name and doc ID
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    // Create object where the titles of the collections are the keys, equaling their respective collection object
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
+};
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   // Ensure the User Auth object is even valid
   if (!userAuth) return;
@@ -40,6 +61,23 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
 
   return userRef;
+};
+
+// Kept for reference: Code related to programatically adding our Collection to Firestore
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  const batch = firestore.batch();
+  objectsToAdd.forEach((obj) => {
+    // Get a new doc ref in this collection and randomly generate ID
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+
+  return await batch.commit();
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -1,8 +1,8 @@
 import React from 'react';
-import './directory.styles.scss';
 import MenuItem from '../menu-item/MenuItem';
 import { useSelector } from 'react-redux';
 import { selectDirectorySections } from '../../redux/directory.selectors';
+import * as Styled from './DirectoryContainer';
 
 const Directory = (props) => {
   const sections = useSelector((state) => selectDirectorySections(state));
@@ -20,7 +20,7 @@ const Directory = (props) => {
       );
     }
   );
-  return <div className='directory-menu'>{renderedSections}</div>;
+  return <Styled.DirectoryMenu>{renderedSections}</Styled.DirectoryMenu>;
 };
 
 export default Directory;

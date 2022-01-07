@@ -7,13 +7,23 @@ import ShopPage from './pages/shop/ShopPage';
 import SignInPage from './pages/signin/SignInPage';
 import CheckoutPage from './pages/checkout/CheckoutPage';
 import { useDispatch, useSelector } from 'react-redux';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import {
+  auth,
+  createUserProfileDocument,
+  // addCollectionAndDocuments,
+} from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/userSlice';
 import { selectCurrentUser } from './redux/user.selectors';
+// import { selectCollectionsForPreview } from './redux/shop.selectors';
 
 function App() {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => selectCurrentUser(state));
+
+  // Kept for reference: Code related to programatically adding our Collection to Firestore
+  // const collectionsArray = useSelector((state) =>
+  //   selectCollectionsForPreview(state)
+  // );
 
   let unsubscribeFromAuth = null;
 
@@ -33,6 +43,14 @@ function App() {
 
   useEffect(() => {
     authHelper();
+
+    // Kept for reference: Code related to programatically adding our Collection to Firestore
+    // addCollectionAndDocuments(
+    //   'collections',
+    //   // We only want the title and items property from each collection
+    //   collectionsArray.map(({ title, items }) => ({ title, items }))
+    // );
+
     return unsubscribeFromAuth;
   }, []);
 
