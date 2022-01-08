@@ -20,3 +20,13 @@ export const selectCollection = (collectionUrlParam) =>
   createDraftSafeSelector([selectCollections], (collections) =>
     collections ? collections[collectionUrlParam] : null
   );
+
+export const selectIsCollectionFetching = createDraftSafeSelector(
+  [selectShop],
+  (shop) => shop.isFetching
+);
+
+export const selectIsCollectionsLoaded = createDraftSafeSelector(
+  [selectShop],
+  (shop) => !!shop.collections
+);
