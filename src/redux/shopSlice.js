@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import SHOP_DATA from './shop.data';
 
 const initialShopState = {
-  collections: SHOP_DATA,
+  collections: null,
 };
 
 const shopSlice = createSlice({

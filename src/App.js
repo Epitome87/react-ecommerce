@@ -51,7 +51,11 @@ function App() {
     //   collectionsArray.map(({ title, items }) => ({ title, items }))
     // );
 
-    return unsubscribeFromAuth;
+    // return unsubscribeFromAuth;
+    // Alternate syntax for cleanup:
+    return function cleanup() {
+      unsubscribeFromAuth();
+    };
   }, []);
 
   return (

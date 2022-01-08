@@ -12,11 +12,11 @@ export const selectCollections = createDraftSafeSelector(
 
 export const selectCollectionsForPreview = createDraftSafeSelector(
   [selectCollections],
-  (collections) => Object.keys(collections).map((key) => collections[key])
+  (collections) =>
+    collections ? Object.keys(collections).map((key) => collections[key]) : []
 );
 
 export const selectCollection = (collectionUrlParam) =>
-  createDraftSafeSelector(
-    [selectCollections],
-    (collections) => collections[collectionUrlParam]
+  createDraftSafeSelector([selectCollections], (collections) =>
+    collections ? collections[collectionUrlParam] : null
   );
