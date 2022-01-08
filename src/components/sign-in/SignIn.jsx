@@ -3,7 +3,7 @@ import FormInput from '../form-input/FormInput';
 import Button from '../button/Button';
 import { signInWithGoogle } from '../../firebase/firebase.utils';
 import { auth } from '../../firebase/firebase.utils';
-import * as Styled from './SignInContainer';
+import * as Styled from './SignIn.styles';
 
 function SignIn() {
   const [email, setEmail] = useState('');

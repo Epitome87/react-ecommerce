@@ -3,7 +3,7 @@ import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 import { toggleCartVisibility } from '../../redux/cartSlice';
 import { selectCartItems } from '../../redux/cart.selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Styled from './CartIconContainer';
+import * as Styled from './CartIcon.styles';
 import styled from 'styled-components';
 
 const StyledShoppingIcon = styled(ShoppingIcon)`

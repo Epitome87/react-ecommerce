@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Styled from './WithSpinnerContainer';
+import * as Styled from './WithSpinner.styles';
 
 // Using arrow functions (ugly, IMHO, but probably expected syntax)
 // const WithSpinner =

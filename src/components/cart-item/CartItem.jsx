@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Styled from './CartItemContainer';
+import * as Styled from './CartItem.styles';
 
 function CartItem({ item: { imageUrl, price, name, quantity } }) {
   return (

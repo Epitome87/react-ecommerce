@@ -1,7 +1,7 @@
 import React from 'react';
 import CollectionItem from '../collection-item/CollectionItem';
 import { NavLink } from 'react-router-dom';
-import * as Styled from './CollectionPreviewContainer';
+import * as Styled from './CollectionPreview.styles';
 
 const DISPLAY_COUNT = 4;
 

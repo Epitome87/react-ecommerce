@@ -1,7 +1,7 @@
 import React from 'react';
 import { addItem, removeItem, clearItem } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
-import * as Styled from './CheckoutItemContainer';
+import * as Styled from './CheckoutItem.styles';
 
 function CheckoutItem({ cartItem }) {
   const { name, imageUrl, price, quantity } = cartItem;

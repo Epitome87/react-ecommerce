@@ -1,11 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Button from '../button/Button';
 import CartItem from '../cart-item/CartItem';
 import { selectCartItems } from '../../redux/cart.selectors';
 import { toggleCartVisibility } from '../../redux/cartSlice';
-import * as Styled from './CartDropdownContainer';
+import * as Styled from './CartDropdown.styles';
 
 function CartDropdown() {
   const cartItems = useSelector((state) => selectCartItems(state));

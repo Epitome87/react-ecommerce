@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Styled from './ButtonContainer';
+import * as Styled from './Button.styles';
 
 function Button({ children, ...otherProps }) {
   return (

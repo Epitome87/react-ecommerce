@@ -7,7 +7,7 @@ import CartDropdown from '../cart-dropdown/CartDropdown';
 import { createStructuredSelector } from 'reselect';
 import { selectCartVisibility } from '../../redux/cart.selectors';
 import { selectCurrentUser } from '../../redux/user.selectors';
-import * as Styled from './HeaderContainer';
+import * as Styled from './Header.styles';
 
 function Header() {
   // const currentUser = useSelector((state) => state.user.value);

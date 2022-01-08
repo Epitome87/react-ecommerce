@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cartSlice';
-import * as Styled from './CollectionItemContainer';
+import * as Styled from './CollectionItem.styles';
 
 function CollectionItem({ item }) {
   const { name, price, imageUrl } = item;

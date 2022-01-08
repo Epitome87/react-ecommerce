@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FormInput from '../form-input/FormInput';
 import Button from '../button/Button';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-import * as Styled from './SignUpContainer';
+import * as Styled from './SignUp.styles';
 
 function SignUp() {
   const initialFormState = {
