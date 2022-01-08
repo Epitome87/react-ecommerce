@@ -12,8 +12,8 @@ import {
   createUserProfileDocument,
   // addCollectionAndDocuments,
 } from './firebase/firebase.utils';
-import { setCurrentUser } from './redux/userSlice';
-import { selectCurrentUser } from './redux/user.selectors';
+import { setCurrentUser } from './redux/user/userSlice';
+import { selectCurrentUser } from './redux/user/user.selectors';
 // import { selectCollectionsForPreview } from './redux/shop.selectors';
 
 function App() {

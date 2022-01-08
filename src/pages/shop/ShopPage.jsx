@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CollectionsOverviewContainer from '../../components/collections-overview/CollectionsOverview.container';
+import CollectionsOverviewContainer from '../../components/collection/overview/CollectionsOverview.container';
 import CollectionPageContainer from '../collection/CollectionPage.container';
 import { useDispatch } from 'react-redux';
-import { fetchCollections } from '../../redux/shopSlice';
+import { fetchCollections } from '../../redux/shop/shopSlice';
 
 function ShopPage() {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { addItem, removeItem, clearItem } from '../../redux/cartSlice';
+import { addItem, removeItem, clearItem } from '../../redux//cart/cartSlice';
 import { useDispatch } from 'react-redux';
 import * as Styled from './CheckoutItem.styles';
 

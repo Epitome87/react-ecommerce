@@ -2,11 +2,11 @@ import React from 'react';
 import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { useSelector } from 'react-redux';
-import CartIcon from '../cart-icon/CartIcon';
-import CartDropdown from '../cart-dropdown/CartDropdown';
+import CartIcon from '../cart/icon/CartIcon';
+import CartDropdown from '../cart/dropdown/CartDropdown';
 import { createStructuredSelector } from 'reselect';
-import { selectCartVisibility } from '../../redux/cart.selectors';
-import { selectCurrentUser } from '../../redux/user.selectors';
+import { selectCartVisibility } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 import * as Styled from './Header.styles';
 
 function Header() {

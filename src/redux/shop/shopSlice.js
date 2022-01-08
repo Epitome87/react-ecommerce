@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { firestore } from '../firebase/firebase.utils';
-import { convertCollectionsSnapshotToMap } from '../firebase/firebase.utils';
+import {
+  firestore,
+  convertCollectionsSnapshotToMap,
+} from '../../firebase/firebase.utils';
 
 const initialShopState = {
   collections: null,

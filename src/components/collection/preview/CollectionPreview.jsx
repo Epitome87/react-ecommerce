@@ -1,5 +1,5 @@
 import React from 'react';
-import CollectionItem from '../collection-item/CollectionItem';
+import CollectionItem from '../item/CollectionItem';
 import { NavLink } from 'react-router-dom';
 import * as Styled from './CollectionPreview.styles';
 

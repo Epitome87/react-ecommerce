@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import userReducer from './userSlice';
-import cartReducer from './cartSlice';
-import directoryReducer from './directorySlice';
-import shopReducer from './shopSlice';
+import userReducer from './user/userSlice';
+import cartReducer from './cart/cartSlice';
+import directoryReducer from './directory/directorySlice';
+import shopReducer from './shop/shopSlice';
 
 const reducers = combineReducers({
   user: userReducer,
