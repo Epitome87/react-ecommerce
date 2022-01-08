@@ -1,19 +1,11 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CollectionsOverview from '../../components/collections-overview/CollectionsOverview';
-import CollectionPage from '../collection/CollectionPage';
-import { useDispatch, useSelector } from 'react-redux';
+import CollectionsOverviewContainer from '../../components/collections-overview/CollectionsOverview.container';
+import CollectionPageContainer from '../collection/CollectionPage.container';
+import { useDispatch } from 'react-redux';
 import { fetchCollections } from '../../redux/shopSlice';
-import { selectIsCollectionsLoaded } from '../../redux/shop.selectors';
-import WithSpinner from '../../components/with-spinner/WithSpinner';
-
-const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 function ShopPage() {
-  const isCollectionsLoaded = useSelector((state) =>
-    selectIsCollectionsLoaded(state)
-  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -62,18 +54,8 @@ function ShopPage() {
   return (
     <div className='shop-page'>
       <Routes>
-        <Route
-          path={`/`}
-          element={
-            <CollectionsOverviewWithSpinner isLoading={!isCollectionsLoaded} />
-          }
-        />
-        <Route
-          path={`:collectionId`}
-          element={
-            <CollectionPageWithSpinner isLoading={!isCollectionsLoaded} />
-          }
-        />
+        <Route path={`/`} element={<CollectionsOverviewContainer />} />
+        <Route path={`:collectionId`} element={<CollectionPageContainer />} />
       </Routes>
     </div>
   );

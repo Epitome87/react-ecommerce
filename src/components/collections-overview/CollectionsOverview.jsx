@@ -8,7 +8,6 @@ function CollectionsOverview() {
   const collections = useSelector((state) =>
     selectCollectionsForPreview(state)
   );
-  console.log('COLLECTIONS', collections);
 
   return (
     <Styled.CollectionsOverview>
