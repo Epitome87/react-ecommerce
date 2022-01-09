@@ -1,8 +1,8 @@
 import React from 'react';
 import MenuItem from '../menu-item/MenuItem';
 import { useSelector } from 'react-redux';
-import { selectDirectorySections } from '../../redux/directory.selectors';
-import * as Styled from './DirectoryContainer';
+import { selectDirectorySections } from '../../redux/directory/directory.selectors';
+import * as Styled from './Directory.styles';
 
 const Directory = (props) => {
   const sections = useSelector((state) => selectDirectorySections(state));
