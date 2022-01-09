@@ -40,7 +40,7 @@ function ShopPage() {
     };
     // This syntax also works, I think?
     // return unSubscribeFromSnapshot;
-  }, []);
+  }, [fetchCollections]); // Treat like componponentDidMount
 
   // const test = async (collectionRef) => {
   //   const snapshot = await collectionRef.get();
