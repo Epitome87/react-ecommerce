@@ -5,6 +5,8 @@ export const CartDropdown = styled.div`
   position: absolute;
   width: 240px;
   height: 340px;
+  color: black;
+  line-height: 1.1rem;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -24,9 +26,11 @@ export const CartItems = styled.div`
 
 export const ButtonContainer = styled(Button)`
   margin-top: auto;
+  font-size: 1rem;
+  align-items: center;
 `;
 
 export const EmptyMessage = styled.span`
-  font-size: 18px;
+  font-size: 1.1rem;
   margin: 50px auto;
 `;

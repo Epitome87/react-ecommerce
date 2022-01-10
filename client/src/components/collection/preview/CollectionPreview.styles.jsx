@@ -6,11 +6,15 @@ export const CollectionPreview = styled.div`
   margin-bottom: 30px;
   padding: 0.5rem;
   color: white;
-  background-color: #293241;
-  border-radius: 20px;
+  border-radius: 5px;
 
   a {
     color: white;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 0;
+    align-items: space-between;
   }
 `;
 
@@ -18,14 +22,20 @@ export const CollectionHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 800px) {
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 28px;
-  margin-bottom: 25px;
 `;
 
 export const Preview = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 800px) {
+    flex-wrap: wrap;
+  }
 `;

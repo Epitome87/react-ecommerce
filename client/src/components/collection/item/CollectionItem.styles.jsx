@@ -8,7 +8,7 @@ export const ItemImage = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
-  border-radius: 20px;
+  border-radius: 5px;
 `;
 
 export const ItemButton = styled(Button)`
@@ -17,6 +17,14 @@ export const ItemButton = styled(Button)`
   position: absolute;
   top: 255px;
   display: none;
+  align-items: center;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;
 
 export const CollectionItem = styled.div`
@@ -39,21 +47,36 @@ export const CollectionItem = styled.div`
       display: flex;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+    padding: 0.5rem;
+
+  &:hover {
+    ${ItemImage} {
+      opacity: unset;
+    }
+
+    ${ItemButton} {
+      opacity: unset;
+    }
+  }
 `;
 
 export const CollectionFooter = styled.div`
+  font-size: 1.125rem;
   width: 100%;
   height: 5%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 18px;
+  flex-grow: 1;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1rem;
+  }
 `;
 
-export const FooterName = styled.span`
-  width: 90%;
-  margin-bottom: 15px;
-`;
+export const FooterName = styled.span``;
 
-export const FooterPrice = styled.span`
-  width: 10%;
-`;
+export const FooterPrice = styled.span``;

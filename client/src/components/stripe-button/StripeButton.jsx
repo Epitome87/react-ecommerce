@@ -15,6 +15,7 @@ function StripeButton({ price }) {
         amount: priceForStripe,
         token,
       });
+
       alert('Payment successful!');
     } catch (err) {
       console.log('Payment error: ', JSON.parse(err));

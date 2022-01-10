@@ -1,29 +1,16 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/header/Header';
-import HomePage from './pages/homepage/HomePage';
-import ShopPage from './pages/shop/ShopPage';
-import SignInPage from './pages/signin/SignInPage';
-import CheckoutPage from './pages/checkout/CheckoutPage';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  auth,
-  createUserProfileDocument,
-  // addCollectionAndDocuments,
-} from './firebase/firebase.utils';
+import { HomePage, ShopPage, SignInPage, CheckoutPage } from './pages';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/userSlice';
 import { selectCurrentUser } from './redux/user/user.selectors';
-// import { selectCollectionsForPreview } from './redux/shop.selectors';
+import { GlobalStyle } from './global.styles';
 
 function App() {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => selectCurrentUser(state));
-
-  // Kept for reference: Code related to programatically adding our Collection to Firestore
-  // const collectionsArray = useSelector((state) =>
-  //   selectCollectionsForPreview(state)
-  // );
 
   let unsubscribeFromAuth = null;
 
@@ -44,15 +31,7 @@ function App() {
   useEffect(() => {
     authHelper();
 
-    // Kept for reference: Code related to programatically adding our Collection to Firestore
-    // addCollectionAndDocuments(
-    //   'collections',
-    //   // We only want the title and items property from each collection
-    //   collectionsArray.map(({ title, items }) => ({ title, items }))
-    // );
-
-    // return unsubscribeFromAuth;
-    // Alternate syntax for cleanup:
+    // Component cleanup
     return function cleanup() {
       unsubscribeFromAuth();
     };
@@ -60,6 +39,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />

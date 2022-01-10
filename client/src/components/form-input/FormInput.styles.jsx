@@ -58,7 +58,6 @@ export const FormInput = styled.input`
 
   input[type='password'] {
     letter-spacing: 0.3em;
-    color: pink;
   }
 `;
 

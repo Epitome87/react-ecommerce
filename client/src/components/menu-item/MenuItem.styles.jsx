@@ -24,17 +24,16 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  background-color: #fff;
   opacity: 0.7;
   position: absolute;
-  background-color: #e0fbfc;
+  background-color: black;
 `;
 
 export const ContentTitle = styled.h2`
   font-weight: bold;
   margin-bottom: 6px;
   font-size: 22px;
-  color: #4a4a4a;
+  color: white;
 `;
 
 export const ContentSubtitle = styled.span`
@@ -74,6 +73,10 @@ export const MenuItem = styled.div`
 
   &:last-child {
     margin-left: 7.5px;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 `;
 

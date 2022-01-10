@@ -23,12 +23,9 @@ function CheckoutItem({ cartItem }) {
         </Styled.Arrow>
       </Styled.ItemQuantity>
       <Styled.ItemPrice>${price}</Styled.ItemPrice>
-      <div
-        className='remove-button'
-        onClick={() => dispatch(clearItem(cartItem))}
-      >
+      <Styled.RemoveButton onClick={() => dispatch(clearItem(cartItem))}>
         &#10005;
-      </div>
+      </Styled.RemoveButton>
     </Styled.CheckoutItem>
   );
 }
