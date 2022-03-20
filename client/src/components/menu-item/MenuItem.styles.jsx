@@ -75,9 +75,9 @@ export const MenuItem = styled.div`
     margin-left: 7.5px;
   }
 
-  @media screen and (max-width: 800px) {
-    height: 200px;
-  }
+  // @media screen and (max-width: 800px) {
+  //   height: 200px;
+  // }
 `;
 
 /*

@@ -23,12 +23,14 @@ export const ItemButton = styled(Button)`
     display: block;
     opacity: 0.9;
     min-width: unset;
+    width: 50%;
     padding: 0 10px;
   }
 `;
 
 export const CollectionItem = styled.div`
-  width: 22vw;
+  // width: 22vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -49,7 +51,9 @@ export const CollectionItem = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    width: 40vw;
+    // width: 40vw;
+
+    // width: 80vw;
     padding: 0.5rem;
 
   &:hover {

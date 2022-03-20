@@ -4,26 +4,23 @@ export const CollectionPreview = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-  padding: 0.5rem;
+  padding: 0;
   color: white;
   border-radius: 5px;
 
   a {
     color: white;
   }
-
-  @media screen and (max-width: 800px) {
-    padding: 0;
-    align-items: space-between;
-  }
 `;
 
 export const CollectionHeader = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (min-width: 400px) {
+    flex-direction: row;
   }
 `;
 
@@ -32,10 +29,8 @@ export const Title = styled.h1`
 `;
 
 export const Preview = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  @media screen and (max-width: 800px) {
-    flex-wrap: wrap;
-  }
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
 `;
