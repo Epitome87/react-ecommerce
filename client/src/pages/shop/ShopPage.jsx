@@ -4,34 +4,21 @@ import CollectionsOverviewContainer from '../../components/collection/overview/C
 import CollectionPageContainer from '../collection/CollectionPage.container';
 import { useDispatch } from 'react-redux';
 import { fetchCollections } from '../../redux/shop/shopSlice';
+import ItemPage from '../item/ItemPage';
 
 function ShopPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCollections());
-
-    // const collectionRef = firestore.collection('collections');
-
-    // Using Firebase's Observer Pattern
-    // unSubscribeFromSnapshot = collectionRef.onSnapshot(async (snapshot) => {
-    //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-    //   console.log('Collections Map', collectionsMap);
-    //   dispatch(updateCollections(collectionsMap));
-    //   setIsLoading(false);
-    // });
-
-    // Cleanup when dismount
-    return function cleanup() {
-      // unSubscribeFromSnapshot();
-    };
   }, [fetchCollections]); // Treat like componponentDidMount
 
   return (
     <div className='shop-page'>
       <Routes>
         <Route path={`/`} element={<CollectionsOverviewContainer />} />
-        <Route path={`:collectionId`} element={<CollectionPageContainer />} />
+        <Route path={`:collectionId/`} element={<CollectionPageContainer />} />
+        <Route path=':collectionId/:productId' element={<ItemPage />} />
       </Routes>
     </div>
   );
