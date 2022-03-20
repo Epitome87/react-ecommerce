@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
   font-family: 'Montserrat';
   padding: 1.5rem 4.5rem;
-  background-color: #293241; 
+  background-color: #252627;
   color: white;
   
 
