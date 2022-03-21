@@ -20,7 +20,11 @@ const Directory = (props) => {
       );
     }
   );
-  return <Styled.DirectoryMenu>{renderedSections}</Styled.DirectoryMenu>;
+  return (
+    <Styled.DirectoryMenu className='container'>
+      {renderedSections}
+    </Styled.DirectoryMenu>
+  );
 };
 
 export default Directory;

@@ -1,8 +1,8 @@
 import React from 'react';
-import CollectionItem from '../../components/collection/item/CollectionItem';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCollection } from '../../redux/shop/shop.selectors';
+import CollectionItem from '../../components/collection/item/CollectionItem';
 import * as Styled from './CollectionPage.styles';
 
 function CollectionPage() {

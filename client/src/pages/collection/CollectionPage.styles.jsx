@@ -20,7 +20,7 @@ export const Items = styled.div`
   grid-gap: 10px;
 
   @media screen and (max-width: 800px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 `;
 

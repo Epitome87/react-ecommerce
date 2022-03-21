@@ -13,20 +13,10 @@ export const Title = styled.h2`
 export const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+
+  button {
+    width: 50%;
+    align-items: center;
+  }
 `;
-
-/*
-.sign-in {
-
-
-  .title {
-    margin: 10px 0;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-*/

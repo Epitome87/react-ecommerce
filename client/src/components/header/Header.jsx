@@ -8,6 +8,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCartVisibility } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import * as Styled from './Header.styles';
+import LoremLogo from '../../assets/ecommerce-logo.png';
 
 function Header() {
   // const currentUser = useSelector((state) => state.user.value);
@@ -27,7 +28,8 @@ function Header() {
   return (
     <Styled.Header>
       <Styled.Logo to='/'>
-        <Logo className='logo' />
+        {/* <Logo className='logo' /> */}
+        <img src={LoremLogo} alt='' />
       </Styled.Logo>
       <Styled.Options>
         <Styled.OptionNavLink to='/shop'>Shop</Styled.OptionNavLink>

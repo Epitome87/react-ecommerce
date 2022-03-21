@@ -31,12 +31,17 @@ export const CartIcon = styled.div.attrs((props) => ({
   justify-content: center;
   cursor: pointer;
   color: white;
+  padding: 0 0.1rem 0 0.4rem;
 
   // If we're animating based on className of "bump"
   // & .bump {
   //   animation: ${bumpAnimation} 300ms ease-out;
   //   color: blue;
   // }
+
+  svg {
+    color: hsl(220, 13%, 13%);
+  }
 
   ${(props) => {
     if (props.animate) {
@@ -47,13 +52,16 @@ export const CartIcon = styled.div.attrs((props) => ({
 
 export const ItemCount = styled.span`
   position: absolute;
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: bold;
-  // bottom: 12px;
 
   top: -30%;
   right: -30%;
-  padding: 2px;
-  background-color: #5b85aa;
+  display: grid;
+  place-content: center;
+  background-color: hsl(26, 100%, 55%);
+  width: 1rem;
+  aspect-ratio: 1.05;
+  line-height: 0;
   border-radius: 50%;
 `;

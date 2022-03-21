@@ -13,13 +13,21 @@ const getButtonStyles = (props) => {
 };
 
 const buttonStyles = css`
-  background-color: black;
+  // background-color: black;
+  background-color: hsl(26, 100%, 55%);
   color: white;
   border: none;
+  box-shadow: 0 10px 10px hsl(26, 100%, 85%);
+  //hsl(25, 100%, 94%);
 
   &:hover {
-    background-color: white;
-    color: black;
+    // background-color: white;
+    background-color: hsl(26, 100%, 70%);
+    // color: black;
+    // border: 1px solid black;
+  }
+
+  &:focus {
     border: 1px solid black;
   }
 `;
@@ -52,8 +60,8 @@ export const ButtonContainer = styled.button`
   width: auto;
   height: 50px;
   letter-spacing: 0.5px;
-  line-height: 50px;
-  padding: 0 35px 0 35px;
+  // line-height: 50px;
+  padding: 0 2rem 0 35px;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -62,6 +70,8 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 
   ${getButtonStyles}
 `;

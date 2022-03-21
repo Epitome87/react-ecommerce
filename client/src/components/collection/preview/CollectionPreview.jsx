@@ -20,7 +20,7 @@ function CollectionPreview({ title, items }) {
           .filter((item, idx) => idx < DISPLAY_COUNT)
           .map((item) => {
             return (
-              <CollectionItem key={item.id} item={item}>
+              <CollectionItem key={item.id} item={item} category={title}>
                 {item.name}
               </CollectionItem>
             );

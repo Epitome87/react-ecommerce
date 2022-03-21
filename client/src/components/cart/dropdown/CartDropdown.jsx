@@ -27,7 +27,7 @@ function CartDropdown() {
     <Styled.CartDropdown>
       <Styled.CartItems>{renderedCartItems}</Styled.CartItems>
       <Styled.ButtonContainer onClick={handleCheckoutClick}>
-        Go to Checkout
+        Checkout
       </Styled.ButtonContainer>
     </Styled.CartDropdown>
   );

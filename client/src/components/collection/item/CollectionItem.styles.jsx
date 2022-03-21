@@ -29,15 +29,12 @@ export const ItemButton = styled(Button)`
 `;
 
 export const CollectionItem = styled.div`
-  // width: 22vw;
   width: 100%;
   display: flex;
   flex-direction: column;
   height: 350px;
   align-items: center;
   position: relative;
-  padding: 1rem;
-  color: white;
 
   &:hover {
     ${ItemImage} {
@@ -51,9 +48,6 @@ export const CollectionItem = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    // width: 40vw;
-
-    // width: 80vw;
     padding: 0.5rem;
 
   &:hover {
